@@ -24,5 +24,23 @@ namespace Tarzenda.Streak.GUI
         {
             InitializeComponent();
         }
+
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            this.Cursor = Cursors.Wait;
+            try
+            {
+                int n = Convert.ToInt32(tbxN.Text);
+                int k = Convert.ToInt32(tbxK.Text);
+                StreakAlgorithm algo = new StreakAlgorithm();
+                double result = algo.Calculate(n, k);
+                lblResults.Content = string.Format("Result: {0:N3}%", result * 100);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Arrow;
+            }
+        }
+
     }
 }
