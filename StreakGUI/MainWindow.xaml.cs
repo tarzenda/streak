@@ -24,6 +24,10 @@ namespace Tarzenda.Streak.GUI
         {
             InitializeComponent();
             cbxAlgo.ItemsSource = IStreakAlgoExtensions.ListAlgos();
+            cbxVariant.ItemsSource = Enum.GetValues(typeof(StreakVariant));
+
+            cbxAlgo.SelectedIndex = 0;
+            cbxVariant.SelectedValue = StreakVariant.HeadsAndTails;
         }
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
@@ -34,6 +38,11 @@ namespace Tarzenda.Streak.GUI
                 MessageBox.Show("Please select an algorithm.");
                 return;
             }
+            StreakVariant? variant = cbxVariant.SelectedItem as StreakVariant?;
+            if (variant == null)
+            {
+                MessageBox.Show("Please select a problem variant.");
+            }
 
             this.Cursor = Cursors.Wait;
             try
@@ -41,7 +50,7 @@ namespace Tarzenda.Streak.GUI
                 IStreakAlgo algo = (IStreakAlgo)Activator.CreateInstance(algoType);
                 int n = Convert.ToInt32(tbxN.Text);
                 int k = Convert.ToInt32(tbxK.Text);
-                StreakResults result = algo.Calculate(StreakVariant.HeadsAndTails, n, k);
+                StreakResults result = algo.Calculate(variant.Value, n, k);
                 lblResults.Content = result.ToString(); ;
             }
             finally
