@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tarzenda.Streak
 {
-    public class ExactStreakAlgo
+    public class ExactStreakAlgo : IStreakAlgo
     {
         public StreakResults Calculate(int n, int k)
         {
