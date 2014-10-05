@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tarzenda.Streak
 {
-    public class StreakAlgorithm
+    public class SamplingStreakAlgo
     {
         private Random _rand = new Random();
 

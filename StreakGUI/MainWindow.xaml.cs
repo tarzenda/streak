@@ -32,7 +32,7 @@ namespace Tarzenda.Streak.GUI
             {
                 int n = Convert.ToInt32(tbxN.Text);
                 int k = Convert.ToInt32(tbxK.Text);
-                StreakAlgorithm algo = new StreakAlgorithm();
+                SamplingStreakAlgo algo = new SamplingStreakAlgo();
                 StreakResults result = algo.Calculate(n, k);
                 lblResults.Content = result.ToString(); ;
             }
