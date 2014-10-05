@@ -9,7 +9,7 @@ namespace Tarzenda.Streak
 {
     public interface IStreakAlgo
     {
-        StreakResults Calculate(int n, int k);
+        StreakResults Calculate(StreakVariant variant, int n, int k);
     }
 
     public static class IStreakAlgoExtensions

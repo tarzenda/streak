@@ -41,7 +41,7 @@ namespace Tarzenda.Streak.GUI
                 IStreakAlgo algo = (IStreakAlgo)Activator.CreateInstance(algoType);
                 int n = Convert.ToInt32(tbxN.Text);
                 int k = Convert.ToInt32(tbxK.Text);
-                StreakResults result = algo.Calculate(n, k);
+                StreakResults result = algo.Calculate(StreakVariant.HeadsAndTails, n, k);
                 lblResults.Content = result.ToString(); ;
             }
             finally

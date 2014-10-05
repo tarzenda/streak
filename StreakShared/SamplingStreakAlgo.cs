@@ -11,7 +11,7 @@ namespace Tarzenda.Streak
     {
         private Random _rand = new Random();
 
-        public StreakResults Calculate(int n, int k)
+        public StreakResults Calculate(StreakVariant variant, int n, int k)
         {
             if (n < k)
                 throw new ArgumentOutOfRangeException("n must be >= k");

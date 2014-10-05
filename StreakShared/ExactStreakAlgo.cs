@@ -9,7 +9,7 @@ namespace Tarzenda.Streak
 {
     public class ExactStreakAlgo : IStreakAlgo
     {
-        public StreakResults Calculate(int n, int k)
+        public StreakResults Calculate(StreakVariant variant, int n, int k)
         {
             if (n < k)
                 throw new ArgumentOutOfRangeException("n must be >= k");
