@@ -10,11 +10,12 @@ namespace Tarzenda.Streak
     {
         private Random _rand = new Random();
 
-        public double CalculatePercentageBySample(int n, int k)
+        public StreakResults Calculate(int n, int k)
         {
             if (n < k)
                 throw new ArgumentOutOfRangeException("n must be >= k");
 
+            StreakResults results = new StreakResults();
             string falseStreak = new String('0', k);
             string trueStreak = new String('1', k);
 
@@ -26,10 +27,14 @@ namespace Tarzenda.Streak
                 if (sample.Contains(falseStreak) || sample.Contains(trueStreak))
                     matches++;
             }
+            attempts--;
 
-            return ((double)matches) / ((double)attempts);
+            return new StreakResults()
+            {
+                Matches = (ulong) matches,
+                Samples = (ulong) attempts,
+            };
         }
-
 
         private string GenerateBinaryString(int n)
         {
