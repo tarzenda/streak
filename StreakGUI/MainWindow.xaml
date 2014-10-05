@@ -11,12 +11,12 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="17,86,0,0" TextWrapping="Wrap" Text="n:" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxN" HorizontalAlignment="Left" Margin="42,86,0,0" TextWrapping="Wrap" Width="67" Height="23" VerticalAlignment="Top" Text="100"/>
-        <TextBlock HorizontalAlignment="Left" Margin="17,114,0,0" TextWrapping="Wrap" Text="k:" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxK" HorizontalAlignment="Left" Height="23" Margin="42,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Text="5"/>
-        <Button x:Name="btnCalculate" Content="Calculate" HorizontalAlignment="Left" Margin="34,156,0,0" VerticalAlignment="Top" Width="75" Click="btnCalculate_Click"/>
-        <Label x:Name="lblResults" Content="..." Margin="17,186,21,15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,61,0,0" TextWrapping="Wrap" Text="n:" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxN" HorizontalAlignment="Left" Margin="36,61,0,0" TextWrapping="Wrap" Width="67" Height="23" VerticalAlignment="Top" Text="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,89,0,0" TextWrapping="Wrap" Text="k:" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxK" HorizontalAlignment="Left" Height="23" Margin="36,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Text="5"/>
+        <Button x:Name="btnCalculate" Content="Calculate" HorizontalAlignment="Left" Margin="28,117,0,0" VerticalAlignment="Top" Width="75" Click="btnCalculate_Click"/>
+        <Label x:Name="lblResults" Content="..." Margin="10,152,10,10"/>
 
     </Grid>
 </Window>
