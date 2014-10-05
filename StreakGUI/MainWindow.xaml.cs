@@ -33,7 +33,7 @@ namespace Tarzenda.Streak.GUI
                 int n = Convert.ToInt32(tbxN.Text);
                 int k = Convert.ToInt32(tbxK.Text);
                 StreakAlgorithm algo = new StreakAlgorithm();
-                double result = algo.Calculate(n, k);
+                double result = algo.CalculatePercentageBySample(n, k);
                 lblResults.Content = string.Format("Result: {0:N3}%", result * 100);
             }
             finally

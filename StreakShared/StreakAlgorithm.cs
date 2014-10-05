@@ -10,7 +10,7 @@ namespace Tarzenda.Streak
     {
         private Random _rand = new Random();
 
-        public double Calculate(int n, int k)
+        public double CalculatePercentageBySample(int n, int k)
         {
             if (n < k)
                 throw new ArgumentOutOfRangeException("n must be >= k");
@@ -30,6 +30,7 @@ namespace Tarzenda.Streak
             return ((double)matches) / ((double)attempts);
         }
 
+
         private string GenerateBinaryString(int n)
         {
             StringBuilder result = new StringBuilder(n);
@@ -38,6 +39,24 @@ namespace Tarzenda.Streak
                 result.Append(_rand.Next(0, 2).ToString());
             }
             return result.ToString();
+        }
+
+        private string IncrementString(string n)
+        {
+            StringBuilder sb = new StringBuilder(n);
+            for (int i = n.Length - 1; i >= 0; i--)
+            {
+                if (sb[i] == '0')
+                {
+                    sb[i] = '1';
+                    break;
+                }
+                else
+                {
+                    sb[i] = '0';
+                }
+            }
+            return sb.ToString();
         }
     }
 }
