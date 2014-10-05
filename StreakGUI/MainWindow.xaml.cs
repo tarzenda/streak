@@ -28,12 +28,19 @@ namespace Tarzenda.Streak.GUI
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
+            Type algoType = cbxAlgo.SelectedItem as Type;
+            if (algoType == null)
+            {
+                MessageBox.Show("Please select an algorithm.");
+                return;
+            }
+
             this.Cursor = Cursors.Wait;
             try
             {
+                IStreakAlgo algo = (IStreakAlgo)Activator.CreateInstance(algoType);
                 int n = Convert.ToInt32(tbxN.Text);
                 int k = Convert.ToInt32(tbxK.Text);
-                SamplingStreakAlgo algo = new SamplingStreakAlgo();
                 StreakResults result = algo.Calculate(n, k);
                 lblResults.Content = result.ToString(); ;
             }
