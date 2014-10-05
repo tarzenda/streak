@@ -52,6 +52,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExactStreakAlgoTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StreakShared\StreakShared.csproj">
+      <Project>{d0e93887-de4b-447e-9ed4-bae4d79e7c81}</Project>
+      <Name>StreakShared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

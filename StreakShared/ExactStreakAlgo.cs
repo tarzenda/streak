@@ -22,6 +22,8 @@ namespace Tarzenda.Streak
             string trueStreak = new String('1', k);
             string zeroSample = new String('0', n);
 
+            //Console.WriteLine("{0} streak {1} ({2})", n, k, variant);
+
             int matches = 0;
             string sample = zeroSample;
             do
@@ -29,6 +31,7 @@ namespace Tarzenda.Streak
                 if (sample.Contains(trueStreak) || 
                     sample.Contains(falseStreak) && variant == StreakVariant.HeadsAndTails)
                 {
+                    //Console.WriteLine(sample);
                     matches++;
                 }
                 sample = IncrementString(sample);
