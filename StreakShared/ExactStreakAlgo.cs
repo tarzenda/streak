@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tarzenda.Streak
 {
-    public class SamplingStreakAlgo
+    public class ExactStreakAlgo
     {
-        private Random _rand = new Random();
-
         public StreakResults Calculate(int n, int k)
         {
             if (n < k)
@@ -18,33 +16,40 @@ namespace Tarzenda.Streak
             StreakResults results = new StreakResults();
             string falseStreak = new String('0', k);
             string trueStreak = new String('1', k);
+            string zeroSample = new String('0', n);
 
-            int attempts = 0;
             int matches = 0;
-            while (++attempts <= 100000)
+            string sample = zeroSample;
+            do
             {
-                string sample = this.GenerateBinaryString(n);
                 if (sample.Contains(falseStreak) || sample.Contains(trueStreak))
                     matches++;
-            }
-            attempts--;
+                sample = IncrementString(sample);
+            } while (sample != zeroSample);
 
             return new StreakResults()
             {
-                Matches = (ulong) matches,
-                Samples = (ulong) attempts,
+                Matches = (ulong)matches,
+                Samples = (ulong)Math.Pow(2,n),
             };
         }
 
-        private string GenerateBinaryString(int n)
+        private static string IncrementString(string n)
         {
-            StringBuilder result = new StringBuilder(n);
-            for (int i = 0; i < n; i++)
+            StringBuilder sb = new StringBuilder(n);
+            for (int i = n.Length - 1; i >= 0; i--)
             {
-                result.Append(_rand.Next(0, 2).ToString());
+                if (sb[i] == '0')
+                {
+                    sb[i] = '1';
+                    break;
+                }
+                else
+                {
+                    sb[i] = '0';
+                }
             }
-            return result.ToString();
+            return sb.ToString();
         }
     }
-
 }

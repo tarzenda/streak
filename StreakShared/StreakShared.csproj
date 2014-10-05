@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExactStreakAlgo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StreakAlgorithm.cs" />
+    <Compile Include="SamplingStreakAlgo.cs" />
     <Compile Include="StreakResults.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
