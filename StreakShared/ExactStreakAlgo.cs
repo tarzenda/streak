@@ -26,8 +26,11 @@ namespace Tarzenda.Streak
             string sample = zeroSample;
             do
             {
-                if (sample.Contains(falseStreak) || sample.Contains(trueStreak))
+                if (sample.Contains(trueStreak) || 
+                    sample.Contains(falseStreak) && variant == StreakVariant.HeadsAndTails)
+                {
                     matches++;
+                }
                 sample = IncrementString(sample);
             } while (sample != zeroSample);
 

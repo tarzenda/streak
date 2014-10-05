@@ -28,8 +28,11 @@ namespace Tarzenda.Streak
             while (++attempts <= 100000)
             {
                 string sample = this.GenerateBinaryString(n);
-                if (sample.Contains(falseStreak) || sample.Contains(trueStreak))
+                if (sample.Contains(trueStreak) ||
+                    sample.Contains(falseStreak) && variant == StreakVariant.HeadsAndTails)
+                {
                     matches++;
+                }
             }
             attempts--;
 
