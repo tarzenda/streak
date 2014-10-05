@@ -4,7 +4,13 @@
         Title="Streak" Height="288.222" Width="170.556">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Algorithm:" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbxAlgo" Margin="10,31,10,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxAlgo" Margin="10,31,10,0" VerticalAlignment="Top">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="17,86,0,0" TextWrapping="Wrap" Text="n:" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxN" HorizontalAlignment="Left" Margin="42,86,0,0" TextWrapping="Wrap" Width="67" Height="23" VerticalAlignment="Top" Text="100"/>
         <TextBlock HorizontalAlignment="Left" Margin="17,114,0,0" TextWrapping="Wrap" Text="k:" VerticalAlignment="Top"/>
