@@ -23,6 +23,7 @@ namespace Tarzenda.Streak.GUI
         public MainWindow()
         {
             InitializeComponent();
+            cbxAlgo.ItemsSource = IStreakAlgoExtensions.ListAlgos();
         }
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
