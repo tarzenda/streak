@@ -15,10 +15,20 @@ namespace Tarzenda.Streak.CLI
 
         static void Main(string[] args)
         {
-            ulong[,] results = new ulong[15, 15];
+            // Parse commandline args...
+            if (args.Length != 3)
+            {
+                Console.WriteLine("Usage: StreakCLI.exe N K OutputFile.csv");
+            }
+            ulong nMax = ulong.Parse(args[0]);
+            ulong kMax = ulong.Parse(args[1]);
+            string file = args[2];
 
+
+            // Perform calculations...
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+            ulong[,] results = new ulong[nMax, kMax];
             ExactStreakAlgo algo = new ExactStreakAlgo();
             Parallel.For(0, results.GetLength(NDimensionIndex), (n) =>
             {
@@ -26,12 +36,14 @@ namespace Tarzenda.Streak.CLI
                 {
                     results[n, k] = n < k ? 0 : algo.Calculate(StreakVariant.HeadsOnly, n+1, k+1).Matches;
                 });
+                Console.WriteLine("Finish n={0}", n + 1);
             });
             stopwatch.Stop();
 
-            File.WriteAllText("Streak.csv", PrintAsCSV(results));
-            File.AppendAllText("Streak.csv", string.Format("Elapse: {0}\r\n", stopwatch.Elapsed));
-            Process.Start("Streak.csv");
+            // Dump to file...
+            File.WriteAllText(file, PrintAsCSV(results));
+            File.AppendAllText(file, string.Format("Elapse: {0}\r\n", stopwatch.Elapsed));
+            //Process.Start(file);
         }
 
         private static string PrintAsCSV(ulong[,] input)
