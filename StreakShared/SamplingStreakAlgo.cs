@@ -13,8 +13,7 @@ namespace Tarzenda.Streak
 
         public StreakResults Calculate(StreakVariant variant, int n, int k)
         {
-            if (n < k)
-                throw new ArgumentOutOfRangeException("n must be >= k");
+            IStreakAlgoExtensions.AssertValidArgs(n, k);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
